@@ -1,0 +1,24 @@
+- table:
+    schema: public
+    name: journals
+- table:
+    schema: public
+    name: plans
+  array_relationships:
+  - name: journals
+    using:
+      foreign_key_constraint_on:
+        column: plan_id
+        table:
+          schema: public
+          name: journals
+  - name: tasks
+    using:
+      foreign_key_constraint_on:
+        column: plan_id
+        table:
+          schema: public
+          name: tasks
+- table:
+    schema: public
+    name: tasks
